@@ -2,16 +2,18 @@
   <main class="container">
     <p id="lead">{{ bookCount }}件中 {{ bookRangeFirst }}~{{ bookRangeLast }}件を一覧表示</p>
     <section>
-      <article class="book" v-for="book of bookList" :key="book.id">
-        <figure>
-          <img :src="book.thumbnail" :alt="book.name" class="thumbnail">
-        </figure>
-        <p class="book-category" :style="{ 'color': book.category.color }">
-          {{ book.category.name }}
-        </p>
-        <h2 class="book-title">{{ book.name }}（著者: {{ book.author.name }} ／ 出版年月日: {{ book.publication_date }}）</h2>
-        <p class="book-lead">{{ book.lead_text }}</p>
-      </article>
+      <router-link :to="{name: 'detail', params: {id: book.id}}" v-for="book of bookList" :key="book.id" class="book">
+        <article>
+          <figure>
+            <img :src="book.thumbnail" :alt="book.name" class="thumbnail">
+          </figure>
+          <p class="book-category" :style="{ 'color': book.category.color }">
+            {{ book.category.name }}
+          </p>
+          <h2 class="book-title">{{ book.name }}（著者: {{ book.author.name }} ／ 出版年月日: {{ book.publication_date }}）</h2>
+          <p class="book-lead">{{ book.lead_text }}</p>
+        </article>
+      </router-link>
     </section>
     <hr class="divider">
     <nav id="page">

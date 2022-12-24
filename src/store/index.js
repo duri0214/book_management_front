@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { UPDATE_BOOKS } from './mutation-types'
+import { UPDATE_BOOKS, UPDATE_CATEGORIES } from './mutation-types'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   strict: true,
   state: {
-    books: {}
+    books: {},
+    categories: []
   },
   getters: {
     getPreviousURL (state) {
@@ -36,16 +37,25 @@ export default new Vuex.Store({
     },
     bookList (state) {
       return state.books.results
+    },
+    categoryList (state) {
+      return state.categories
     }
   },
   mutations: {
     [UPDATE_BOOKS] (state, payload) {
       state.books = payload
+    },
+    [UPDATE_CATEGORIES] (state, payload) {
+      state.categories = payload
     }
   },
   actions: {
     [UPDATE_BOOKS] ({commit}, payload) {
       commit(UPDATE_BOOKS, payload)
+    },
+    [UPDATE_CATEGORIES] ({commit}, payload) {
+      commit(UPDATE_CATEGORIES, payload)
     }
   },
   modules: {}

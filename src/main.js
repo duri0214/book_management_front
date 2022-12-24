@@ -11,6 +11,7 @@ Vue.prototype.$http = (url, opts) => fetch(url, opts)
 
 // urls
 Vue.prototype.$httpBooks = 'http://127.0.0.1:8000/book_management/api/books/'
+Vue.prototype.$httpCategories = 'http://127.0.0.1:8000/book_management/api/categories/'
 
 /* eslint-disable no-new */
 new Vue({

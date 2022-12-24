@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'site-footer'
+  name: 'Footer'
 }
 </script>
 

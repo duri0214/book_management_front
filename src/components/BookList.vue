@@ -63,7 +63,6 @@ export default {
       })
       .then(data => {
         this[UPDATE_BOOKS](data)
-        console.log(data)
       })
   }
 }
